@@ -19,6 +19,21 @@ augroup FileTypeIndent
     autocmd FileType go setlocal shiftwidth=4 tabstop=4 noexpandtab
 augroup END
 
+" Advanced Python indentation
+augroup PythonIndent
+    autocmd!
+    " Auto indent after colon for Python
+    autocmd FileType python inoremap <buffer> : :<CR>
+    " Ensure proper indentation for functions, classes, and control structures
+    autocmd FileType python set autoindent
+    autocmd FileType python set smartindent
+    autocmd FileType python set cindent
+    " Use Python's indentation rules specifically
+    autocmd FileType python set cinkeys-=0#
+    autocmd FileType python set indentkeys-=0#
+augroup END
+
+
 " File browser configuration (using built-in netrw)
 let g:netrw_banner = 0        " Hide banner
 let g:netrw_liststyle = 3     " Tree view
